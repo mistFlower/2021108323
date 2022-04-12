@@ -52,7 +52,7 @@ public class Main_class {
 		
 		union.setText("유니온");
 		union.setBackground(bg);
-		union.setForeground(fn);
+		union.setForeground(fn); 
 
 		
 		MainPanel.add(union);
