@@ -10,10 +10,14 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 
 public class Main_class {
-
-	public static void main(String []args) {
+	public static void main(String[] args) {
+        new Main_class();
+    }
+	
+	public Main_class() {
 		JFrame MainFrame = new JFrame("Main A");
 		
 		Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -22,7 +26,7 @@ public class Main_class {
 		//x,y,w,h
 		MainFrame.setSize(900, 500);
 				
-		MainFrame.setLocation((windowSize.width - frameSize.width) / 2, (windowSize.height - frameSize.height) / 2);
+		MainFrame.setLocation((windowSize.width - frameSize.width) / 4, (windowSize.height - frameSize.height) / 4);
 		
 		//TODO 부모 프레임이 보이도록 설정
 		MainFrame.setVisible(true);
@@ -53,9 +57,35 @@ public class Main_class {
 		union.setText("유니온");
 		union.setBackground(bg);
 		union.setForeground(fn); 
-
 		
+		union.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	new Union();
+                MainFrame.setVisible(false); // 창 안보이게 하기 
+            }
+        });
 		MainPanel.add(union);
 		MainFrame.setContentPane(MainPanel);
+	}
+	
+	public class Union extends  JFrame{
+	    Union(){
+	        super("UNION"); //타이틀
+	        JPanel jPanel = new JPanel();
+	        JPanel LayOutBlock = new JPanel();
+	        
+	        Color bg = new Color(69, 69, 69);
+	        jPanel.setBackground(bg);
+	        setSize(900, 500);
+
+	        add(jPanel);
+
+	        Dimension frameSize = getSize();
+	        Dimension windowSize = Toolkit.getDefaultToolkit().getScreenSize();
+	        setLocation((windowSize.width - frameSize.width) / 2, (windowSize.height - frameSize.height) / 2); //화면 중앙에 띄우기
+	        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+	        setVisible(true);
+	    }
 	}
 }
