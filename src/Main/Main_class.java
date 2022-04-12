@@ -53,14 +53,6 @@ public class Main_class {
 		union.setText("유니온");
 		union.setBackground(bg);
 		union.setForeground(fn);
-		union.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				MainPanel.setSize(0, 0);
-				UnionPanel.setSize(900, 500);
-				MainFrame.setContentPane(UnionPanel);
-			}
-        });
 
 		
 		MainPanel.add(union);
